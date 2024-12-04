@@ -2,14 +2,23 @@ type headerProp = {
   header: string;
 };
 
-export default function Props({ header }: headerProp) {
+type Obj = {
+  obj: {
+    name: string;
+    age: number;
+    cgpa: number;
+  };
+};
+
+export default function Props({ header, obj }: headerProp & Obj) {
   const clickedProp = () => {
-    prompt(`the prop is clicked`);
+    alert(`your cgpa is ${obj.cgpa}`);
+    console.log(header, obj);
   };
   return (
     <div>
-      <h1>{header}</h1>
-      <p>{header}</p>
+      <h1>{obj.name}</h1>
+      <p>{obj.cgpa}</p>
       <button onClick={clickedProp}>{header}</button>
     </div>
   );
