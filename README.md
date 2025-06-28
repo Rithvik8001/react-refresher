@@ -1,69 +1,59 @@
-# React + TypeScript + Vite
+# 🚀 React Refresher
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern React learning playground to refresh core concepts using React 19, TypeScript, and Vite.
 
-Currently, two official plugins are available:
+![React](https://img.shields.io/badge/React-19.1.0-61DAFB?style=for-the-badge&logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.8.3-3178C6?style=for-the-badge&logo=typescript)
+![Vite](https://img.shields.io/badge/Vite-7.0.0-646CFF?style=for-the-badge&logo=vite)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ What's Inside
 
-## Expanding the ESLint configuration
+- **React 19** with latest features
+- **TypeScript** for type safety
+- **Vite** for fast development
+- **Tailwind CSS** for styling
+- **shadcn/ui** components
+- **Restaurant listing interface** as a practical example
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🚀 Quick Start
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+```bash
+# Install dependencies
+pnpm install
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+# Start development server
+pnpm dev
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# Build for production
+pnpm build
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🎯 React Concepts Covered
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- **Functional Components** & Hooks
+- **Redux for Global State Management**
+- **TypeScript** integration with props and interfaces
+- **Component Composition** and reusability
+- **Event Handling** and user interactions
+- **Responsive Design** with Tailwind CSS
+- **Modern Development** practices
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 📁 Key Components
+
+- `Navbar` - Responsive navigation with mobile menu
+- `Header` - Main content with restaurant listings
+- `ResCard` - Restaurant information cards
+- `ui/` - Reusable shadcn/ui components
+
+## 🛠️ Tech Stack
+
+- React 19.1.0
+- TypeScript 5.8.3
+- Vite 7.0.0
+- Tailwind CSS 4.1.11
+- shadcn/ui components
+- ESLint for code quality
+
+---
+
+**Happy Learning! 🎉**

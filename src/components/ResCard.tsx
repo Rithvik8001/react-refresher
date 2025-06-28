@@ -1,12 +1,10 @@
 import { Card, CardContent, CardTitle } from "./ui/card";
 
 interface RescardProps {
-  resName: string;
-  cuisine: string;
-  eta: string;
+  resData: any;
 }
 
-const ResCard = ({ resName, cuisine, eta }: RescardProps) => {
+const ResCard = ({ resData }: RescardProps) => {
   return (
     <>
       <Card className="p-3 sm:p-4 w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl mx-auto hover:shadow-lg transition-shadow duration-300 cursor-pointer backdrop-blur-2xl">
@@ -23,19 +21,19 @@ const ResCard = ({ resName, cuisine, eta }: RescardProps) => {
 
         <div className="mt-4 space-y-2">
           <CardTitle className="text-lg sm:text-xl font-bold text-gray-900 tracking-tight">
-            {resName}
+            {resData.name}
           </CardTitle>
 
           <CardContent className="p-0">
             <div className="flex flex-col space-y-2">
               <div className="flex flex-wrap gap-1">
                 <span className="text-xs sm:text-sm text-gray-600 bg-gray-100 px-2 py-1 rounded-full">
-                  {cuisine}
+                  {resData.cuisines.join(", ")}
                 </span>
               </div>
 
               <div className="flex items-center justify-between text-sm text-gray-500">
-                <span>🕒 {eta}</span>
+                <span>🕒 {resData.sla.slaString} </span>
                 <span>🚚 Free delivery</span>
               </div>
             </div>
