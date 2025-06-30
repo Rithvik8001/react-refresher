@@ -1,15 +1,24 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./components/Home";
+import About from "./components/About";
+import Contact from "./components/Contact";
 import Header from "./components/Header";
-import Navbar from "./components/Navbar";
+import RestaurantMenu from "./components/RestaurantMenu";
 
 const App = () => {
   return (
     <>
-      <div className="bg-gray-50 flex flex-col min-h-screen">
-        <div className="m-4 sm:m-6 lg:m-8 space-y-6 sm:space-y-8">
-          <Navbar />
-          <Header />
-        </div>
-      </div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />}>
+            <Route index element={<Header />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/restaurant/:resId" element={<RestaurantMenu />} />
+          </Route>
+          <Route path="*" element={<h1>No Page Found</h1>} />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 };

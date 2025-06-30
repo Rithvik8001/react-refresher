@@ -4,6 +4,7 @@ import { Input } from "./ui/input";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { API_URL } from "../utils/constants";
+import { Link } from "react-router-dom";
 
 interface RestaurantInfo {
   id: string;
@@ -93,17 +94,23 @@ const Header = () => {
           </div>
         </div>
 
-        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="w-full max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
           {isLoading ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6 sm:gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 sm:gap-6 lg:gap-8">
               {Array.from({ length: 10 }).map((_, index) => (
                 <Shimmer key={index} />
               ))}
             </div>
           ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6 sm:gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 sm:gap-6 lg:gap-8">
               {restaurents.map((restaurant: Restaurant) => (
-                <ResCard key={restaurant.info.id} resData={restaurant.info} />
+                <Link
+                  to={`/restaurant/${restaurant.info.id}`}
+                  key={restaurant.info.id}
+                  className="block"
+                >
+                  <ResCard resData={restaurant.info} />
+                </Link>
               ))}
             </div>
           )}

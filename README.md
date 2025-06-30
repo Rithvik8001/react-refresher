@@ -38,13 +38,6 @@ pnpm build
 - **Responsive Design** with Tailwind CSS
 - **Modern Development** practices
 
-## 📁 Key Components
-
-- `Navbar` - Responsive navigation with mobile menu
-- `Header` - Main content with restaurant listings
-- `ResCard` - Restaurant information cards
-- `ui/` - Reusable shadcn/ui components
-
 ## 🛠️ Tech Stack
 
 - React 19.1.0
