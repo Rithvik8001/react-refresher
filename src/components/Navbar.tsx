@@ -1,9 +1,12 @@
+/* eslint-disable @typescript-eslint/no-unused-expressions */
 import Logo from "./Logo";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { Button } from "./ui/button";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [authStatus, setAuthStatus] = useState<string>("Login");
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -31,6 +34,7 @@ const Navbar = () => {
           <li className="text-sm lg:text-base font-medium hover:text-primary transition-colors cursor-pointer">
             Cart
           </li>
+          <Button>{authStatus}</Button>
         </ul>
 
         {/* Mobile Menu Button */}
@@ -62,6 +66,17 @@ const Navbar = () => {
               <li className="text-base font-medium hover:text-primary transition-colors cursor-pointer py-2">
                 Cart
               </li>
+              <Button
+                className="cursor-pointer"
+                variant="outline"
+                onClick={() => {
+                  authStatus === "Login"
+                    ? setAuthStatus("Logout")
+                    : setAuthStatus("Login");
+                }}
+              >
+                {authStatus}
+              </Button>
             </ul>
           </div>
         )}
