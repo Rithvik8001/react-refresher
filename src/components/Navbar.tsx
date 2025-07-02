@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "./ui/button";
+import useOnlineStatus from "../hooks/useOnlineStatus";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,17 +14,17 @@ const Navbar = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const { status } = useOnlineStatus();
+
   return (
     <>
       <div className="h-16 shadow-xs flex items-center justify-between rounded-2xl bg-white px-4 md:px-6">
-        {/* Logo Section */}
         <div className="flex items-center">
           <Link to="/">
             <Logo size={44} className="w-10 h-10 md:w-11 md:h-11" />
           </Link>
         </div>
 
-        {/* Desktop Navigation */}
         <ul className="hidden md:flex justify-between items-center gap-8 lg:gap-12">
           <Link to="/">
             <li className="text-sm lg:text-base font-medium hover:text-primary transition-colors cursor-pointer">
@@ -54,9 +55,9 @@ const Navbar = () => {
           >
             {authStatus}
           </Button>
+          <Button>User is {status ? "🟢 Online" : "🔴 Offline"}</Button>
         </ul>
 
-        {/* Mobile Menu Button */}
         <button
           onClick={toggleMenu}
           className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
@@ -69,7 +70,6 @@ const Navbar = () => {
           )}
         </button>
 
-        {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="absolute top-16 left-0 right-0 bg-white border-b border-gray-200 shadow-lg md:hidden z-50">
             <ul className="flex flex-col py-4 px-6 space-y-4">

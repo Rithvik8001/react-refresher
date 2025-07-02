@@ -1,10 +1,9 @@
 import ResCard from "./ResCard";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
-import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
-import { API_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
+import useRestaurant from "../hooks/useRestaurants";
 
 interface RestaurantInfo {
   id: string;
@@ -22,43 +21,14 @@ interface Restaurant {
 }
 
 const Header = () => {
-  const [restaurents, setRestaurents] = useState<Restaurant[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [input, setInput] = useState<string>("");
-
-  const filterTopRated = () => {
-    const filteredList = restaurents.filter((res: Restaurant) => {
-      return res.info.avgRating > 4.3;
-    });
-    console.log(filteredList);
-    setRestaurents(filteredList);
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  const fetchData = async () => {
-    try {
-      setIsLoading(true);
-      const response = await fetch(API_URL);
-      const apiData = await response.json();
-      const apiRestaurants =
-        apiData.data?.cards[1]?.card.card.gridElements?.infoWithStyle
-          ?.restaurants;
-
-      if (apiRestaurants && apiRestaurants.length > 0) {
-        setRestaurents(apiRestaurants);
-      } else {
-        setRestaurents([]);
-      }
-    } catch (error) {
-      console.error("Error fetching data:", error);
-      setRestaurents([]);
-    } finally {
-      setIsLoading(false);
-    }
-  };
+  const {
+    input,
+    setInput,
+    restaurents,
+    setRestaurents,
+    isLoading,
+    filterTopRated,
+  } = useRestaurant();
 
   return (
     <>
@@ -66,7 +36,7 @@ const Header = () => {
         <div className="mt-8 sm:mt-12">
           <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 justify-center items-center px-4 sm:px-6">
             <Input
-              className="lg:w-1/2 max-w-md sm:max-w-lg md:max-w-xl bg-white border-gray-300 focus:border-primary focus:ring-black placeholder:text-xs placeholder:text-center text-black"
+              className="lg:w-1/2 max-w-md sm:max-w-lg md:max-w-xl"
               placeholder="Search for restaurants, cuisines, or dishes..."
               value={input}
               onChange={(e) => {
@@ -79,18 +49,8 @@ const Header = () => {
                 setRestaurents(searchRes);
               }}
             />
-            <Button
-              variant="outline"
-              className=" sm:w-auto px-8 py-2 border-gray-300 hover:bg-primary hover:text-white transition-colors"
-            >
-              Search
-            </Button>
-            <Button
-              onClick={filterTopRated}
-              className="py-5 px-3 text-sm font-light cursor-pointer"
-            >
-              Top Rated Restaurants
-            </Button>
+            <Button>Search</Button>
+            <Button onClick={filterTopRated}>Top Rated Restaurants</Button>
           </div>
         </div>
 
