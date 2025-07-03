@@ -4,6 +4,11 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import Header from "./components/Header";
 import RestaurantMenu from "./components/RestaurantMenu";
+// import Grocery from "./components/Grocery";
+import { lazy, Suspense } from "react";
+import Shimmer from "./components/Shimmer";
+
+const Grocery = lazy(() => import("./components/Grocery"));
 
 const App = () => {
   return (
@@ -15,6 +20,14 @@ const App = () => {
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/restaurant/:resId" element={<RestaurantMenu />} />
+            <Route
+              path="/groceries"
+              element={
+                <Suspense fallback={<Shimmer />}>
+                  <Grocery />
+                </Suspense>
+              }
+            />
           </Route>
           <Route path="*" element={<h1>No Page Found</h1>} />
         </Routes>

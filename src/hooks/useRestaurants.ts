@@ -50,9 +50,11 @@ function useRestaurant() {
       setIsLoading(false);
     }
   };
+
   useEffect(() => {
     fetchData();
   }, []);
+
   return {
     restaurents,
     setRestaurents,

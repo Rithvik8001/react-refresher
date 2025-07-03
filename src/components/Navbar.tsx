@@ -41,9 +41,15 @@ const Navbar = () => {
               Contact
             </li>
           </Link>
+          <Link to="/groceries">
+            <li className="text-sm lg:text-base font-medium hover:text-primary transition-colors cursor-pointer">
+              Groceries
+            </li>
+          </Link>
           <li className="text-sm lg:text-base font-medium hover:text-primary transition-colors cursor-pointer">
             Cart
           </li>
+
           <Button
             className="cursor-pointer"
             variant="outline"
