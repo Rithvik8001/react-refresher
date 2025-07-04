@@ -1,12 +1,10 @@
-import { Link } from "react-router-dom";
-
 const Footer = () => {
   return (
-    <div className="flex justify-center items-center h-10 bg-gray-100">
-      <Link to="/" className="text-sm text-gray-500">
-        &copy; {new Date().getFullYear()} Foodie. All rights reserved.
-      </Link>
-    </div>
+    <>
+      <div className="text-center py-4 text-muted-foreground">
+        <p>&copy; 2024 Duno. All rights reserved.</p>
+      </div>
+    </>
   );
 };
 

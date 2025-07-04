@@ -1,18 +1,15 @@
 const Grocery = () => {
   return (
-    <div>
-      <div>
-        <h1 className="text-5xl text-center tracking-tighter">
-          Welcome to Grocieries
+    <>
+      <div className="max-w-4xl mx-auto px-4 py-8">
+        <h1 className="text-3xl font-bold text-foreground mb-6">
+          Grocery Store
         </h1>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi
-          eligendi totam perspiciatis tempore, excepturi vel nemo non mollitia,
-          enim consequatur assumenda quas quia obcaecati fugiat impedit ducimus
-          sint, eum dolorum.
+        <p className="text-muted-foreground leading-relaxed">
+          Fresh groceries delivered to your doorstep.
         </p>
       </div>
-    </div>
+    </>
   );
 };
 

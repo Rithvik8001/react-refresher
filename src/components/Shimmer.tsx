@@ -1,30 +1,33 @@
-import { Skeleton } from "./ui/skeleton";
-
 const Shimmer = () => {
   return (
-    <div className="bg-white border border-gray-100 shadow-2xl rounded-2xl overflow-hidden">
-      {/* Image skeleton */}
-      <Skeleton className="w-full h-48" />
-
-      {/* Content skeleton */}
-      <div className="p-5 space-y-3">
-        {/* Title skeleton */}
-        <Skeleton className="h-6 w-3/4" />
-
-        {/* Cuisines skeleton */}
-        <div className="flex gap-1.5">
-          <Skeleton className="h-5 w-16" />
-          <Skeleton className="h-5 w-20" />
-          <Skeleton className="h-5 w-12" />
+    <>
+      <div className="group overflow-hidden bg-card border border-border shadow-sm rounded-xl animate-pulse">
+        {/* Image container */}
+        <div className="relative w-full h-48 overflow-hidden">
+          <div className="w-full h-full bg-muted animate-pulse"></div>
         </div>
 
-        {/* Delivery info skeleton */}
-        <div className="flex items-center justify-between pt-2 border-t border-gray-50">
-          <Skeleton className="h-4 w-20" />
-          <Skeleton className="h-4 w-24" />
+        {/* Content */}
+        <div className="p-5">
+          <div className="space-y-3">
+            {/* Title */}
+            <div className="h-6 bg-muted rounded animate-pulse"></div>
+
+            {/* Cuisines */}
+            <div className="flex flex-wrap gap-1.5">
+              <div className="h-5 w-16 bg-muted rounded animate-pulse"></div>
+              <div className="h-5 w-20 bg-muted rounded animate-pulse"></div>
+            </div>
+
+            {/* Delivery info */}
+            <div className="flex items-center justify-between pt-2 border-t border-border">
+              <div className="h-4 w-24 bg-muted rounded animate-pulse"></div>
+              <div className="h-4 w-20 bg-muted rounded animate-pulse"></div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

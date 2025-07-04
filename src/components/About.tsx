@@ -1,10 +1,12 @@
 const About = () => {
   return (
     <>
-      <div className="min-h-screen flex flex-col">
-        <div className="mt-12">
-          <h1 className="text-5xl text-center">About Page</h1>
-        </div>
+      <div className="max-w-4xl mx-auto px-4 py-8">
+        <h1 className="text-3xl font-bold text-foreground mb-6">About Us</h1>
+        <p className="text-muted-foreground leading-relaxed">
+          We are a food delivery platform that connects you with the best
+          restaurants in your area.
+        </p>
       </div>
     </>
   );

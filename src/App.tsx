@@ -7,6 +7,7 @@ import RestaurantMenu from "./components/RestaurantMenu";
 // import Grocery from "./components/Grocery";
 import { lazy, Suspense } from "react";
 import Shimmer from "./components/Shimmer";
+import Cart from "./components/Cart";
 
 const Grocery = lazy(() => import("./components/Grocery"));
 
@@ -28,7 +29,9 @@ const App = () => {
                 </Suspense>
               }
             />
+            <Route path="/cart" element={<Cart />} />
           </Route>
+
           <Route path="*" element={<h1>No Page Found</h1>} />
         </Routes>
       </BrowserRouter>
