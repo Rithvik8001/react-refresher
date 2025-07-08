@@ -1,24 +1,16 @@
 import ResCard from "./ResCard";
+import type { RestaurantData } from "./ResCard";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useRestaurant from "../hooks/useRestaurants";
 import { Search, Star } from "lucide-react";
+import { totalRatingsHigherOrderComponent } from "./TotalRatingsHOC";
 
-interface RestaurantInfo {
-  id: string;
-  name: string;
-  avgRating: number;
-  cloudinaryImageId: string;
-  cuisines: string[];
-  sla: {
-    slaString: string;
-  };
-}
-
+// Use RestaurantData directly since it already includes the optional totalRatingsString
 interface Restaurant {
-  info: RestaurantInfo;
+  info: RestaurantData;
 }
 
 const Header = () => {
@@ -30,6 +22,9 @@ const Header = () => {
     isLoading,
     filterTopRated,
   } = useRestaurant();
+
+  // Create the higher-order component for restaurants with total ratings
+  const TotalRatingsResCard = totalRatingsHigherOrderComponent(ResCard);
 
   return (
     <>
@@ -114,7 +109,12 @@ const Header = () => {
                     key={restaurant.info.id}
                     className="block group"
                   >
-                    <ResCard resData={restaurant.info} />
+                    {/* Conditionally render higher-order component if totalRatingsString exists */}
+                    {restaurant.info.totalRatingsString ? (
+                      <TotalRatingsResCard resData={restaurant.info} />
+                    ) : (
+                      <ResCard resData={restaurant.info} />
+                    )}
                   </Link>
                 ))}
               </div>

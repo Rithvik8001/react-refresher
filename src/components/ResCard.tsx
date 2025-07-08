@@ -1,6 +1,6 @@
 import { Card, CardContent, CardTitle } from "./ui/card";
 
-interface RestaurantData {
+export interface RestaurantData {
   id: string;
   name: string;
   avgRating: number;
@@ -9,9 +9,10 @@ interface RestaurantData {
   sla: {
     slaString: string;
   };
+  totalRatingsString?: string; // Optional field for restaurants that have total ratings
 }
 
-interface RescardProps {
+export interface RescardProps {
   resData: RestaurantData;
 }
 
