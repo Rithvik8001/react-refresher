@@ -67,7 +67,7 @@ const ResCard = ({ resData }: RescardProps) => {
                   ))}
                 {resData.cuisines.length > 2 && (
                   <span className="text-xs font-medium text-muted-foreground bg-muted/50 px-2 py-1 rounded-full border border-border/30">
-                    +{resData.cuisines.length - 2}
+                    + {resData.cuisines.length - 2}
                   </span>
                 )}
               </div>

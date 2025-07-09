@@ -6,6 +6,8 @@ interface ItemCard {
       name: string;
       price: number;
       description?: string;
+      imageId?: string;
+      defaultPrice?: number;
     };
   };
 }
@@ -59,7 +61,7 @@ function useRestaurantMenu(resId: string | undefined) {
       setIsLoading(true);
       console.log("Making API call for resId:", resId);
       const response = await fetch(
-        `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.9628669&lng=77.57750899999999&restaurantId=${resId}&catalog_qa=undefined&submitAction=ENTER`
+        `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.9628669&lng=77.57750899999999&restaurantId=${resId}&catalog_qa=undefined&submitAction=ENTER`,
       );
       const data = await response.json();
       console.log("API Response:", data);
