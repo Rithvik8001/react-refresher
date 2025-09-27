@@ -1,0 +1,6 @@
+.container {
+  border: 1px solid black;
+  padding: 20px;
+  border-radius: 6px;
+  font-family: Arial, Helvetica, sans-serif;
+}
